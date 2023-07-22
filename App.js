@@ -3,6 +3,8 @@ import React from 'react'
 import OnBoard from './components/OnBoard'
 import AppIntroSlider from 'react-native-app-intro-slider';
 import colors from './assets/colors';
+import Icon from 'react-native-vector-icons/Ionicons';
+
 
 const data = [
   {
@@ -42,31 +44,36 @@ export default function App() {
   const keyExtractor = (item) => item.title;
   const renderDoneButton = () => {
     return (
-      <View>
-        <Text>
-          Done
-        </Text>
+      <View style={styles.buttonCircle}>
+        <Icon
+          name="checkmark-outline"
+          color="rgba(255, 255, 255, .9)"
+          size={24}
+        />
       </View>
     )
   }
   const renderNextButton = () => {
     return (
-      <View>
-        <Text>
-          Next
-        </Text>
+      <View style={styles.buttonCircle}>
+        <Icon
+          name="arrow-forward-outline"
+          color="rgba(255, 255, 255, .9)"
+          size={24}
+        />
       </View>
     )
   }
-  const renderPrevButton = () => {
-    return (
-      <View>
-        <Text>
-          Prev
-        </Text>
-      </View>
-    )
-  }  
+  // DIBAWAH INI ADALAH SAMPLE UNTUK MENAMPILKAN PREV ATAU HANYA TEXT SAJA
+  // const renderPrevButton = () => {
+  //   return (
+  //     <View>
+  //       <Text>
+  //         Prev
+  //       </Text>
+  //     </View>
+  //   )
+  // }  
 
 
   return (
@@ -77,8 +84,8 @@ export default function App() {
         renderItem={renderItem}
         renderDoneButton={renderDoneButton}
         renderNextButton={renderNextButton}
-        renderPrevButton={renderPrevButton}
-        showPrevButton
+        // renderPrevButton={renderPrevButton} RENDER UNTUK PREV NYA
+        showPrevButton // RENDER UNTUK PREV NYA
         data={data}
       />
    </View>
@@ -108,5 +115,13 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginHorizontal: 60, // ini mirip dengan margin kanan kirinya
     marginTop: 20,
+  },
+  buttonCircle: {
+    width: 40,
+    height: 40,
+    backgroundColor: 'rgba(0, 0, 0, .2)',
+    borderRadius: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 })
