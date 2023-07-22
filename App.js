@@ -40,6 +40,34 @@ export default function App() {
   }
 
   const keyExtractor = (item) => item.title;
+  const renderDoneButton = () => {
+    return (
+      <View>
+        <Text>
+          Done
+        </Text>
+      </View>
+    )
+  }
+  const renderNextButton = () => {
+    return (
+      <View>
+        <Text>
+          Next
+        </Text>
+      </View>
+    )
+  }
+  const renderPrevButton = () => {
+    return (
+      <View>
+        <Text>
+          Prev
+        </Text>
+      </View>
+    )
+  }  
+
 
   return (
     <View style={{flex: 1}}>
@@ -47,6 +75,10 @@ export default function App() {
       <AppIntroSlider
         keyExtractor={keyExtractor}
         renderItem={renderItem}
+        renderDoneButton={renderDoneButton}
+        renderNextButton={renderNextButton}
+        renderPrevButton={renderPrevButton}
+        showPrevButton
         data={data}
       />
    </View>
@@ -77,5 +109,4 @@ const styles = StyleSheet.create({
     marginHorizontal: 60, // ini mirip dengan margin kanan kirinya
     marginTop: 20,
   },
-
 })
